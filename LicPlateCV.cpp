@@ -16,7 +16,6 @@ string LicPlateCV::runCommand(string command){
 	}
 
 	string output = "";
-	/* Read the output a line at a time - output it. */
 	while (fgets(path, sizeof(path)-1, fp) != NULL) {
 		output += path;
 	}

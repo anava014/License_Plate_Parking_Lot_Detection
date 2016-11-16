@@ -7,8 +7,8 @@ OBJS = LicPlateCV.o
 
 #Targets
 
-all: main.cpp $(OBJS)
-	$(COMPILE) $(FLAGS) -o a.out main.cpp $(OBJS)
+all: main.cpp $(OBJS) 
+	$(COMPILE) $(FLAGS) -o a.out main.cpp $(OBJS) -l sqlite3
 
 LicPlateCV.o: LicPlateCV.cpp LicPlateCV.h
 	$(COMPILE) $(FLAGS) -c LicPlateCV.cpp

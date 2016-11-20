@@ -3,7 +3,7 @@
 #Variables
 COMPILE = g++
 FLAGS = -g -W -Wall -Werror -ansi -pedantic
-OBJS = LicPlateCV.o Database.o Citations.o
+OBJS = LicPlateCV.o Database.o Citations.o CurrentCars.o
 
 #Targets
 
@@ -18,6 +18,9 @@ Database.o: Database.cpp Database.h
 
 Citations.o: Citations.cpp Citations.h
 	$(COMPILE) $(FLAGS) -c Citations.cpp
+
+CurrentCars.o: CurrentCars.cpp CurrentCars.h
+	$(COMPILE) $(FLAGS) -c CurrentCars.cpp
 
 run:
 	make

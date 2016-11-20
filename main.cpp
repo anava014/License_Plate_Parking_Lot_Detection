@@ -4,7 +4,7 @@
 using namespace std;
 
 int main(){
-	LicPlateCV cameraOne("test.jpg");
+	LicPlateCV cameraOne("live.jpeg", 5, 5);
 	
 	cameraOne.beginMonitoring();
 

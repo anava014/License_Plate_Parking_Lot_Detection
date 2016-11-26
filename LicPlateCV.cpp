@@ -12,7 +12,7 @@ void LicPlateCV::beginMonitoring(){
 
 	while(1){
 		clearScreen();
-		cout << currentTime() << endl;
+		cout << "Current Time: " << currentTime() << endl;
 		// ccDatabase.printCurrentCars();
 		scanParkingLot();
 
@@ -21,35 +21,33 @@ void LicPlateCV::beginMonitoring(){
 	
 }
 
-/*
-TO-DO
-citations:
-check if car has citation already,
-else: add citation
-*/
-
 void LicPlateCV::scanParkingLot(){
 	vector<string> currentCars = extractPlateInfo();
 
 	for(unsigned i = 0; i < currentCars.size(); ++i){
-		cout << currentCars[i] << endl;
-		if(ccDatabase.isInDatabase(currentCars[i])){
+		cout << "Car[" << i << "]: " <<  currentCars[i] << endl;
+		if(ccDatabase.isInDatabase(currentCars[i])){ // Car is in database
 			//cout << "Hes in there - ";
 			double minutesParked = ccDatabase.timeInSpot(currentCars[i]);
-			cout << "minutesParked: " << minutesParked << endl;
-			if(minutesParked > _parkingTimeDuration){
-				cout << "Citation will be made" << endl;
+			cout << "MinutesParked: " << minutesParked << endl;
+			if(minutesParked > _parkingTimeDuration){ // Has been there > time allowed
+				
+				if(citationsDb.isInDatabase(currentCars[i])){
+					cout << "Already has citation" << endl;
+				}
+				else{ //give citation
+					cout << "No citation yet: Citation will be made" << endl;
+					string timeIn = ccDatabase.returnTimeIn(currentCars[i]);
+					citationsDb.addCitation(currentCars[i], timeIn, currentTime());
+				}
 			}
 		}
-		else{
+		else{ // Add car to database
 			ccDatabase.addParkedCar(currentCars[i], currentTime());
 		}
-		//check if car is in database
-		//if is, check if it has expired
-		//if has, give citation
-
-		//else, add to database
 	}
+
+	ccDatabase.validateDatabase(currentCars, _parkingTimeDuration);
 }
 
 void LicPlateCV::delayProgram(double secondsToDelay)
@@ -102,7 +100,6 @@ string LicPlateCV::runCommand(string command){
 
 vector<string> LicPlateCV::extractPlateInfo(){
 	stringstream ss;
-	//citationsDb.addCitation("9876543", "8:00", "10:00"); //2016-11-11 05:00:00
 
 	string results = runCommand("alpr -n 1 " + _pathToImage);
 	ss.str(results);

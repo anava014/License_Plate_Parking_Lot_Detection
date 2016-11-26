@@ -18,6 +18,7 @@ private:
 	int _checkFrequency;
 	int _parkingTimeDuration;
 	string runCommand(string command);
+	vector<string> prevCars;
 
 	Citations citationsDb;
 	CurrentCars ccDatabase;
@@ -32,7 +33,6 @@ public:
 	vector<string> extractPlateInfo();
 	void printTables();
 	void beginMonitoring();
-
 };
 
 #endif

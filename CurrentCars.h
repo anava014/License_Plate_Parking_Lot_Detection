@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include "Database.h"
+#include <vector>
 
 using namespace std;
 
@@ -16,6 +17,9 @@ class CurrentCars{
 		void printCurrentCars();
 		bool isInDatabase(string plate_number);
 		double timeInSpot(string plate_number);
+		string returnTimeIn(string plate_number);
+		void remove(string plate_number);
+		void validateDatabase(vector<string> currentCars, int parkingTimeDuration);
 };
 
 

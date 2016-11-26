@@ -13,9 +13,21 @@ void CurrentCars::printCurrentCars(){
 }
 
 bool CurrentCars::isInDatabase(string plate_number){
-	return db.searchFor(plate_number);
+	return db.searchFor(plate_number, "currentCars");
 }
 
 double CurrentCars::timeInSpot(string plate_number){
 	return db.timeInSpot(plate_number);
+}
+
+string CurrentCars::returnTimeIn(string plate_number){
+	return db.returnTimeIn(plate_number);
+}
+
+void CurrentCars::remove(string plate_number){
+	db.remove(plate_number);
+}
+
+void CurrentCars::validateDatabase(vector<string> currentCars, int parkingTimeDuration){
+	db.validateCurrentCars(currentCars, parkingTimeDuration);
 }

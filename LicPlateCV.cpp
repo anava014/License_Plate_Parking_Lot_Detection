@@ -21,6 +21,14 @@ void LicPlateCV::beginMonitoring(){
 	
 }
 
+/*
+TO DO:
+RUN THROUGH TESTCASES
+1) Car exceeds time limit
+2) Car swaps and exceeds time limit
+3)
+*/
+
 void LicPlateCV::scanParkingLot(){
 	vector<string> currentCars = extractPlateInfo();
 

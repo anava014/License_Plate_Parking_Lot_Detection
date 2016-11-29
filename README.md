@@ -1,10 +1,11 @@
 # License_Plate_Parking_Lot_Detection
 
-To compile:
-make
-
-To run:
+To run: 
 make run
 
-To clean(make sure to clean before pushing changes):
-make clean
+Important files:
+In current directory, live.jpeg is the image that is being processed by the entire program.
+
+The directory images has 8 images in which the user can use to sample the parking lot database input.
+
+To copy a file, easiest method is with cp command: "cp images/image2.jpeg live.jpeg" from current directory.

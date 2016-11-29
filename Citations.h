@@ -15,7 +15,6 @@ class Citations{
 		void printCitations();
 		void addCitation(string plate_number, string time_in, string time_ex);
 		bool isInDatabase(string plate_number);
-		
 };
 
 

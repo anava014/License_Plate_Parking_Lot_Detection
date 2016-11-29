@@ -6,6 +6,8 @@
 #include <time.h>
 #include <ctime>
 #include <vector>
+#include <stdio.h>
+#include <string>
 
 using namespace std;
 

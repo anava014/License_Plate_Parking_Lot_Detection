@@ -7,27 +7,14 @@ LicPlateCV::LicPlateCV(string pathToImage, int checkFrequency, int parkingTimeDu
 }
 
 void LicPlateCV::beginMonitoring(){
-	//While loop
-	
-
 	while(1){
 		clearScreen();
 		cout << "Current Time: " << currentTime() << endl;
-		// ccDatabase.printCurrentCars();
 		scanParkingLot();
-
 		delayProgram(_checkFrequency);
 	}
 	
 }
-
-/*
-TO DO:
-RUN THROUGH TESTCASES
-1) Car exceeds time limit
-2) Car swaps and exceeds time limit
-3)
-*/
 
 void LicPlateCV::scanParkingLot(){
 	vector<string> currentCars = extractPlateInfo();

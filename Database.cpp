@@ -115,11 +115,6 @@ double Database::timeInSpot(string plate_number){
 
 	time_t     now = time(0);
 
-	// struct tm  tstruct;
-	// char       buf[80];
-	// tstruct = *localtime(&tDataBase);
-	// strftime(buf, sizeof(buf), "%Y-%m-%d %H:%M:%S", &tstruct);
-
 	double dif =difftime(now,tDataBase);
 
 	return dif/60;

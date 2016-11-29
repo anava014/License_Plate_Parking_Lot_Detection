@@ -2,7 +2,7 @@
 
 #Variables
 COMPILE = g++
-FLAGS = -g -W -Wall -Werror -ansi -pedantic
+FLAGS = -g -W -Wall -Werror -ansi -pedantic -std=c++11
 OBJS = LicPlateCV.o Database.o Citations.o CurrentCars.o
 
 #Targets
